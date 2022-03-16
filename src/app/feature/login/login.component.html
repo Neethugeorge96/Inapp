@@ -1,0 +1,27 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <img src="../../../assets/mobile-login-concept-illustration_114360-135.jpg" id="icon" alt="User Icon" />
+    </div>
+
+
+    <form [formGroup]="Loginform" autocomplete="off">
+      <input type="text" id="login" class="fadeIn second" name="email" formControlName="email" placeholder="Email">
+      <p class="text-danger" *ngIf="submitted && Loginform.controls['email'].errors?.['required']">Email is required</p>
+      <p class="text-danger" *ngIf="submitted && Loginform.controls['email'].errors?.['email']">Invalid email</p>
+      <input type="text" id="password" formControlName="password" class="fadeIn third" name="password"
+        placeholder="password">
+      <p class="text-danger" *ngIf="submitted && Loginform.controls['password'].errors?.['required']">password is
+        required</p>
+      <input type="button" class="fadeIn fourth" (click)="login()" value="Log In">
+    </form>
+
+
+    <div id="formFooter">
+      Doesn't have an account?
+      <a class="underlineHover" routerLink="/register">Register Now</a>
+    </div>
+
+  </div>
+</div>

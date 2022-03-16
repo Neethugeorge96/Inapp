@@ -1,0 +1,42 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+
+
+    <div class="fadeIn first">
+      <img src="../../../assets/mobile-login-concept-illustration_114360-135.jpg" id="icon" alt="User Icon" />
+    </div>
+
+    <form [formGroup]="RegistrationForm" autocomplete="off">
+      <input type="text" id="username" class="fadeIn first" formControlName="username" name="username"
+        placeholder="Name">
+      <p class="text-danger" *ngIf="submitted && RegistrationForm.controls['username'].errors?.['required']">Name is
+        required</p>
+      <p class="text-danger" *ngIf="submitted && RegistrationForm.controls['username'].errors?.['pattern']">Only
+        alphabets are allowed </p>
+      <input type="text" id="email" class="fadeIn second" name="email" formControlName="email" placeholder="Email"
+        (ngModelChange)="checkexisting()">
+      <p class="text-danger" *ngIf="submitted && RegistrationForm.controls['email'].errors?.['required']">Email is
+        required</p>
+      <p class="text-danger" *ngIf="submitted && RegistrationForm.controls['email'].errors?.['email']">Invalid email</p>
+      <p class="text-danger" *ngIf="isExisting">Email already existing</p>
+      <input type="password" id="password" class="fadeIn third" name="password" formControlName="password"
+        placeholder="Password">
+      <p class="text-danger" *ngIf="submitted && RegistrationForm.controls['password'].errors?.['required']">Password is
+        required</p>
+      <p class="text-danger" *ngIf="submitted && RegistrationForm.controls['password'].errors?.['maxlength']">Password
+        should not greater than 20</p>
+      <p class="text-danger" *ngIf="submitted && RegistrationForm.controls['password'].errors?.['pattern']">special
+        characters are not allowed</p>
+
+      <input type="button" class="fadeIn fourth" value="Register" (click)="registerUser()">
+    </form>
+
+
+    <div id="formFooter">
+      Already have an account?
+      <a class="underlineHover" routerLink="/login">Login here</a>
+    </div>
+
+  </div>
+</div>

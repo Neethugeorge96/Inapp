@@ -1,0 +1,32 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <h3 class="mt-4">Profile settings</h3>
+
+    <form [formGroup]="profileFrm" class ="mt-5 mb-5" autocomplete="off">
+      <p>Change Name</p>
+      <input type="text" id="username" class="fadeIn first" formControlName="username" autocomplete="off" name="username" placeholder="Change Name">
+      <p class="text-danger" *ngIf="submitted && profileFrm.controls['username'].errors?.['required']">Name is required</p>
+      <p>Change Password</p>
+      <input type="password" id="password" class="fadeIn third" name="password" formControlName="password" placeholder=" Change Password">
+      <p class="text-danger" *ngIf="submitted && profileFrm.controls['password'].errors?.['required']">Password is required</p>
+      <p class="text-danger" *ngIf="submitted && profileFrm.controls['password'].errors?.['maxlength']">Password shouldn't be  too long</p>
+      <p>Email</p>
+      <input type="text" id="email" class="fadeIn second" name="email" formControlName="email" placeholder="Email" >
+    </form>
+
+
+    <div id="formFooter">
+      <div>
+        <a class="underlineHover" (click)="Update()">Update Profile</a>
+      </div>
+      <div>
+        <a class="underlineHover" (click)="removeaccount()"  >Delete Profile</a>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

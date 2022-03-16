@@ -1,0 +1,26 @@
+<div id="page-content-wrapper">
+
+  <app-nav-bar></app-nav-bar>
+
+ <div class="container-fluid ">
+    <div class="row">
+      <div class="card col-lg-4 mt-2" *ngFor="let item of readLaterList">
+        <img *ngIf="item.multimedia" class="card-img-top" [src]="item.multimedia[0].url" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text">{{item.abstract}}</p>
+          <div class="d-flex">
+            <a class="btn btn-primary" (click)="gotourl(item.url)">Read More</a>
+            <a class="btn btn-primary readlater"   (click)="remove(item)">x</a>
+          </div>
+
+        </div>
+      </div>
+      <div *ngIf="readLaterList.length == 0">
+        <h3 class="text-center">No Articles Found</h3>
+      </div>
+    </div>
+
+  </div>
+
+</div>
